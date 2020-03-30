@@ -1,1 +1,1 @@
-# Algoritmos-Gen-ticos
+# Algoritmos-Genéticos
