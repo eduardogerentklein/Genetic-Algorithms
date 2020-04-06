@@ -1,11 +1,13 @@
-WEIGHT_LIMIT = 5
-valor  = [3, 9, 12, 8]
-peso = [1, 3, 4, 2]
+WEIGHT_LIMIT = 30
+valor  = [15, 7, 10, 5, 8, 17]
+peso = [15, 3, 2, 5, 9, 20]
 
 def knapsack(pos, selected):
+
 	# calcula o total
 	totalValue = 0 
 	totalWeight = 0
+	
 	for i in selected:
 		totalValue += valor[i]
 		totalWeight += peso[i]
@@ -16,13 +18,13 @@ def knapsack(pos, selected):
 	if pos >= len(peso):
 		return (totalValue, totalWeight)
 	
-	ans1 = knapsack(pos+1, selected+[pos])
-	ans2 = knapsack(pos+1, list(selected))
+	answer1 = knapsack(pos+1, selected+[pos])
+	answer2 = knapsack(pos+1, list(selected))
 	
-	if ans1[0] > ans2[0]:
-		return ans1
+	if answer1[0] > answer2[0]:
+		return answer1
 	else:
-		return ans2
+		return answer2
 		
-ans = knapsack(0, [])
-print(ans)
+bestAnswer = knapsack(0, [])
+print(bestAnswer)
